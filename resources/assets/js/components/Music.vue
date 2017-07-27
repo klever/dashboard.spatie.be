@@ -58,7 +58,7 @@
                 return !!this.artwork;
             },
             cover() {
-                return this.artwork || '/images/music__cover.jpg';
+                return this.artwork || '/images/dashboard/music__cover.jpg';
             },
         },
 

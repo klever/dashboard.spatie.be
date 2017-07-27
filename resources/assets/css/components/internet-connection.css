@@ -23,7 +23,7 @@
 }
 
 .internet-connection__icon {
-    background-image: url('/images/svg/alert.svg');
+    background-image: url('/images/dashboard/svg/alert.svg');
     font-size: var(--font-size-l);
 }
 
