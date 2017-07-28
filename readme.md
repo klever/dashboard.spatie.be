@@ -27,7 +27,20 @@ With a new laravel app...
  - `php artisan migrate`
  - Add a user: perhaps use `php artisan tinker`
  - Add the `Spatie\\LaravelDashboard\\Providers\\DashboardServiceProvider` to your `provider` in `config/app.php`
+ - Add the schedule to your console kernel. Add `(new DashboardSchedule($schedule))->handle();` to the `handle` method.
+ - Add your pusher cluster settings to the `config/broadcasting.php` file 
+```
+'pusher' => [
+    ...
+    'options' => [
+        'cluster' => 'eu',
+        'secure' => true,
+    ],
+]
+```
+ - If using google calendar, you need a service account - add the json file with credentials to `storage/app/google-calendar/service-account-credentials.json`
  - Add the .env items you need from the `stubs/.env.example` for the services you want to use.
+ 
  
 ##### For simple use 
 - `php artisan vendor:publish --provider=Spatie\\LaravelDashboard\\Providers\\DashboardServiceProvider --tag=basic`
