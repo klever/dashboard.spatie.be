@@ -1,6 +1,13 @@
 <?php
 
 return [
+    'service_providers_to_register' => [
+        \Spatie\LaravelDashboard\EventServiceProvider::class,
+        \Spatie\LaravelDashboard\BroadcastServiceProvider::class,
+        \Spatie\LaravelDashboard\PackageServiceProvider::class,
+        \Spatie\LaravelDashboard\CollectionServiceProvider::class,
+    ],
+
     'node_server_address' => 'http://dashboard.spatie.be:6001',
 
     'services' => [

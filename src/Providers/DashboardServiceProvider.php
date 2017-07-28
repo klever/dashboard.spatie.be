@@ -21,18 +21,17 @@ class DashboardServiceProvider extends ServiceProvider
 
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__ . '/../../config/dashboard.php', 'dashboard');
+
         $this->registerProviders();
         $this->registerCommands();
-
-        $this->mergeConfigFrom(__DIR__ . '/../../config/dashboard.php', 'dashboard');
     }
 
     private function registerProviders()
     {
-        $this->app->register(EventServiceProvider::class);
-        $this->app->register(BroadcastServiceProvider::class);
-        $this->app->register(PackageServiceProvider::class);
-        $this->app->register(CollectionServiceProvider::class);
+        collect(config('dashboard.service_providers_to_register'))->each(function ($provider) {
+            $this->app->register($provider);
+        });
     }
 
     private function registerCommands()
