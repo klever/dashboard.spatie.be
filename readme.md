@@ -24,8 +24,11 @@ With a new laravel app...
 
  - `composer require spatie/laravel-dashboard:dev-package-it-up@dev`
  - `php artisan make:auth`
+ - `php artisan migrate`
  - Add a user: perhaps use `php artisan tinker`
  - Add the `Spatie\\LaravelDashboard\\Providers\\DashboardProvider` to your `provider` in `config/app.php`
+ - Add the .env items you need from the `stubs/.env.example` for the services you want to use.
+ 
 ##### For simple use 
 - `php artisan vendor:publish --provider=Spatie\\LaravelDashboard\\Providers\\DashboardProvider --tag=basic`
 - visit your.site.url/dashboard after logging in
