@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'node_server_address' => 'http://dashboard.spatie.be:6001',
+
     'services' => [
         'github' => [
             'token' => env('GITHUB_TOKEN'),
@@ -17,5 +19,13 @@ return [
         'packagist' => [
             'vendor' => env('PACKAGIST_VENDOR'),
         ],
+
+        'twitter' => [
+            'listen_for_mentions' => [
+                'spatie.be',
+                '@spatie_be',
+                'github.com/spatie',
+            ]
+        ]
     ],
 ];

@@ -17,6 +17,8 @@ class DashboardController extends Controller
             'initialTweets' => TweetHistory::all(),
 
             'usingNodeServer' => usingNodeServer(),
+
+            'nodeServerAddress' => config('dashboard.node_server_address'),
         ]);
     }
 }

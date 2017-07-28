@@ -3,7 +3,9 @@
 @section('content')
 
     <script>
-        window.dashboard = {!! json_encode(compact('pusherKey', 'pusherCluster', 'usingNodeServer')) !!};
+        window.dashboard = {!! json_encode(
+            compact('pusherKey', 'pusherCluster', 'usingNodeServer', 'nodeServerAddress')
+       ) !!};
     </script>
 
     <dashboard id="dashboard" columns="5" rows="3">
