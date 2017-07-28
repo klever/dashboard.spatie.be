@@ -6,25 +6,16 @@ use Spatie\LaravelDashboard\Events\DashboardEvent;
 
 class TotalsFetched extends DashboardEvent
 {
-    /** @var int */
-    public $stars;
-
-    /** @var int */
-    public $issues;
-
-    /** @var int */
-    public $pullRequests;
-
-    /** @var int */
-    public $contributors;
-
-    /** @var int */
-    public $numberOfRepos;
+    /** @var array */
+    public $totals;
 
     public function __construct(array $totals)
     {
-        foreach ($totals as $sumName => $total) {
-            $this->$sumName = $total;
-        }
+        $this->totals = $totals;
+    }
+
+    public function broadcastWith()
+    {
+        return $this->totals;
     }
 }
