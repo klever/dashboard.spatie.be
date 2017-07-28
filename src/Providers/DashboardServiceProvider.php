@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelDashboard;
+namespace Spatie\LaravelDashboard\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -37,16 +37,16 @@ class DashboardServiceProvider extends ServiceProvider
     private function registerCommands()
     {
         $this->commands([
-            Console\Components\Calendar\FetchCalendarEvents::class,
-            Console\Components\GitHub\FetchTotals::class,
-            Console\Components\InternetConnection\SendHeartbeat::class,
-            Console\Components\Music\FetchCurrentTrack::class,
-            Console\Components\Packagist\FetchTotals::class,
-            Console\Components\Tasks\FetchTasks::class,
-            Console\Components\Twitter\ListenForMentions::class,
-            Console\Components\Twitter\ListenForQuotes::class,
-            Console\Components\Twitter\SendFakeTweet::class,
-            Console\UpdateDashboard::class,
+            \Spatie\LaravelDashboard\Console\Components\Calendar\FetchCalendarEvents::class,
+            \Spatie\LaravelDashboard\Console\Components\GitHub\FetchTotals::class,
+            \Spatie\LaravelDashboard\Console\Components\InternetConnection\SendHeartbeat::class,
+            \Spatie\LaravelDashboard\Console\Components\Music\FetchCurrentTrack::class,
+            \Spatie\LaravelDashboard\Console\Components\Packagist\FetchTotals::class,
+            \Spatie\LaravelDashboard\Console\Components\Tasks\FetchTasks::class,
+            \Spatie\LaravelDashboard\Console\Components\Twitter\ListenForMentions::class,
+            \Spatie\LaravelDashboard\Console\Components\Twitter\ListenForQuotes::class,
+            \Spatie\LaravelDashboard\Console\Components\Twitter\SendFakeTweet::class,
+            \Spatie\LaravelDashboard\Console\UpdateDashboard::class,
         ]);
     }
 }

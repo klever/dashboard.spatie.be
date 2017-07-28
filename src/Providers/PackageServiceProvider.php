@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelDashboard;
+namespace Spatie\LaravelDashboard\Providers;
 
 use Spatie\Tail\TailServiceProvider;
 use Illuminate\Foundation\AliasLoader;

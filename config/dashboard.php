@@ -2,10 +2,10 @@
 
 return [
     'service_providers_to_register' => [
-        \Spatie\LaravelDashboard\EventServiceProvider::class,
-        \Spatie\LaravelDashboard\BroadcastServiceProvider::class,
-        \Spatie\LaravelDashboard\PackageServiceProvider::class,
-        \Spatie\LaravelDashboard\CollectionServiceProvider::class,
+        \Spatie\LaravelDashboard\Providers\EventServiceProvider::class,
+        \Spatie\LaravelDashboard\Providers\BroadcastServiceProvider::class,
+        \Spatie\LaravelDashboard\Providers\PackageServiceProvider::class,
+        \Spatie\LaravelDashboard\Providers\CollectionServiceProvider::class,
     ],
 
     'node_server_address' => 'http://dashboard.spatie.be:6001',

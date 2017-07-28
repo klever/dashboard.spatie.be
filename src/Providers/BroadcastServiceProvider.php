@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelDashboard;
+namespace Spatie\LaravelDashboard\Providers;
 
 use App\User;
 use Illuminate\Support\ServiceProvider;
