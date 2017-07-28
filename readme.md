@@ -26,17 +26,17 @@ With a new laravel app...
  - `php artisan make:auth`
  - `php artisan migrate`
  - Add a user: perhaps use `php artisan tinker`
- - Add the `Spatie\\LaravelDashboard\\Providers\\DashboardProvider` to your `provider` in `config/app.php`
+ - Add the `Spatie\\LaravelDashboard\\Providers\\DashboardServiceProvider` to your `provider` in `config/app.php`
  - Add the .env items you need from the `stubs/.env.example` for the services you want to use.
  
 ##### For simple use 
-- `php artisan vendor:publish --provider=Spatie\\LaravelDashboard\\Providers\\DashboardProvider --tag=basic`
+- `php artisan vendor:publish --provider=Spatie\\LaravelDashboard\\Providers\\DashboardServiceProvider --tag=basic`
 - visit your.site.url/dashboard after logging in
 
 Simple customisations are possible through the config file.
 
 #####To fully customise, it needs more work
-- `php artisan vendor:publish --provider=Spatie\\LaravelDashboard\\Providers\\DashboardProvider --tag=advanced`
+- `php artisan vendor:publish --provider=Spatie\\LaravelDashboard\\Providers\\DashboardServiceProvider --tag=advanced`
 - add babel.rc and all package.json reqt's (see the packages .babelrc and package.json)
 - `npm run prod` to build the necessary files. 
 
