@@ -1,6 +1,9 @@
 <?php
 
 return [
+    // The list of service providers to register. Each has a specific role.
+    // You can remove any of them and replace with your own version, or
+    // So you can implement it differently (e.g. routes) if needed.
     'service_providers_to_register' => [
         \Spatie\LaravelDashboard\Providers\EventServiceProvider::class,
         \Spatie\LaravelDashboard\Providers\BroadcastServiceProvider::class,
@@ -8,8 +11,10 @@ return [
         \Spatie\LaravelDashboard\Providers\CollectionServiceProvider::class,
     ],
 
+    // The node server address, if you are using it
     'node_server_address' => 'http://dashboard.spatie.be:6001',
 
+    // Details for the services being used, allowing simple customisation
     'services' => [
         'github' => [
             'token' => env('GITHUB_TOKEN'),

@@ -28,8 +28,11 @@ With a new laravel app...
  - Add the `Spatie\\LaravelDashboard\\Providers\\DashboardProvider` to your `provider` in `config/app.php`
 ##### For simple use 
 - `php artisan vendor:publish --provider=Spatie\\LaravelDashboard\\Providers\\DashboardProvider --tag=basic`
+- visit your.site.url/dashboard after logging in
 
-#####To customise, it needs more work
+Simple customisations are possible through the config file.
+
+#####To fully customise, it needs more work
 - `php artisan vendor:publish --provider=Spatie\\LaravelDashboard\\Providers\\DashboardProvider --tag=advanced`
 - add babel.rc and all package.json reqt's (see the packages .babelrc and package.json)
 - `npm run prod` to build the necessary files. 
