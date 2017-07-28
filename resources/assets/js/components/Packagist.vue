@@ -49,7 +49,7 @@
 
             getEventHandlers() {
                 return {
-                    'Packagist.TotalsFetched': response => {
+                    'Packagist\\TotalsFetched': response => {
                         this.daily = response.daily;
                         this.monthly = response.monthly;
                         this.total = response.total;

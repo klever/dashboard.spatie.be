@@ -31,7 +31,7 @@
         methods: {
             getEventHandlers() {
                 return {
-                    'Tasks.TasksFetched': response => {
+                    'Tasks\\TasksFetched': response => {
                         this.tasks = response.tasks[this.teamMember];
                     },
                 };

@@ -67,10 +67,10 @@
 
             getEventHandlers() {
                 return {
-                    'Music.NothingPlaying': () => {
+                    'Music\\NothingPlaying': () => {
                         this.artist = '';
                     },
-                    'Music.TrackIsPlaying': response => {
+                    'Music\\TrackIsPlaying': response => {
                         this.artist = response.trackInfo.artist;
                         this.trackName = response.trackInfo.trackName;
                         this.artwork = response.trackInfo.artwork;

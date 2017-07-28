@@ -72,7 +72,7 @@
 
             getEventHandlers() {
                 return {
-                    'Twitter.Mentioned': response => {
+                    'Twitter\\Mentioned': response => {
                         this.addToWaitingLine(new Tweet(response.tweetProperties));
                     },
                 };

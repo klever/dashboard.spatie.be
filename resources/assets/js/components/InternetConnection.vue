@@ -38,7 +38,7 @@
 
             getEventHandlers() {
                 return {
-                    'InternetConnection.Heartbeat': () => {
+                    'InternetConnection\\Heartbeat': () => {
                         this.lastHeartBeatReceivedAt = moment();
                     },
                 };

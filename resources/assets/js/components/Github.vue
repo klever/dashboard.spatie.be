@@ -59,7 +59,7 @@
 
             getEventHandlers() {
                 return {
-                    'GitHub.TotalsFetched': response => {
+                    'GitHub\\TotalsFetched': response => {
                         this.stars = response.stars;
                         this.issues = response.issues;
                         this.pullRequests = response.pullRequests;

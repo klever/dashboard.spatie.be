@@ -39,7 +39,7 @@
 
             getEventHandlers() {
                 return {
-                    'Calendar.EventsFetched': response => {
+                    'Calendar\\EventsFetched': response => {
                         this.events = response.events;
                     },
                 };
