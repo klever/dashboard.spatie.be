@@ -34,6 +34,7 @@ class DashboardServiceProvider extends ServiceProvider
             $this->basePath . 'public' => public_path(),
             $this->basePath . 'resources/assets/fonts' => public_path('fonts'),
             $this->basePath . 'resources/assets/images' => public_path('images/dashboard'),
+            $this->basePath . 'resources/views' => resource_path('views/vendor/dashboard'),
         ], 'basic');
     }
 
@@ -41,12 +42,12 @@ class DashboardServiceProvider extends ServiceProvider
     {
         $this->publishes([
             $this->basePath . 'config' => config_path(),
-            $this->basePath . 'resources/views' => resource_path('views/vendor/dashboard'),
+            $this->basePath . 'public' => public_path(),
             $this->basePath . 'resources/assets/fonts' => public_path('fonts'),
             $this->basePath . 'resources/assets/images' => public_path('images/dashboard'),
             $this->basePath . 'resources/assets/css' => resource_path('assets/sass/dashboard'),
             $this->basePath . 'resources/assets/js' => resource_path('assets/js/dashboard'),
-            $this->basePath . 'public' => public_path(),
+            $this->basePath . 'resources/views' => resource_path('views/vendor/dashboard'),
         ], 'advanced');
     }
 
