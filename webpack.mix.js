@@ -1,10 +1,11 @@
 const { mix } = require('laravel-mix');
 
 mix
-    .js('resources/assets/js/app.js', 'public/js')
-    .sass('resources/assets/css/app.css', 'public/css')
+    .js('resources/assets/js/dashboard.js', 'public/js')
+    .sass('resources/assets/css/dashboard.css', 'public/css')
 
-	.version()
+	// Use versioning on the app if you build dashboard assets there
+    // .version()
 
     .options({
         processCssUrls: false,

@@ -18,6 +18,24 @@ Our configured dashboard has following tiles:
 
 ## Installation
 
+====NEW==== WIP
+
+With a new laravel app...
+
+ - `composer require spatie/laravel-dashboard:dev-package-it-up@dev`
+ - `php artisan make:auth`
+ - Add a user: perhaps use `php artisan tinker`
+ - Add the `Spatie\\LaravelDashboard\\Providers\\DashboardProvider` to your `provider` in `config/app.php`
+##### For simple use 
+- `php artisan vendor:publish --provider=Spatie\\LaravelDashboard\\Providers\\DashboardProvider --tag=basic`
+
+#####To customise, it needs more work
+- `php artisan vendor:publish --provider=Spatie\\LaravelDashboard\\Providers\\DashboardProvider --tag=advanced`
+- add babel.rc and all package.json reqt's (see the packages .babelrc and package.json)
+- `npm run prod` to build the necessary files. 
+
+====OLD====
+
 Install this package by running cloning this repository and install like you normally install Laravel.
 
 - Run `composer install` and `npm install yarn`

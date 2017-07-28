@@ -3,25 +3,56 @@
 namespace Spatie\LaravelDashboard\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Spatie\LaravelDashboard\Console\UpdateDashboard;
+use Spatie\LaravelDashboard\Console\Components\Tasks\FetchTasks;
+use Spatie\LaravelDashboard\Console\Components\Twitter\SendFakeTweet;
+use Spatie\LaravelDashboard\Console\Components\Twitter\ListenForQuotes;
+use Spatie\LaravelDashboard\Console\Components\Twitter\ListenForMentions;
+use Spatie\LaravelDashboard\Console\Components\Music\FetchCurrentTrack;
+use Spatie\LaravelDashboard\Console\Components\Calendar\FetchCalendarEvents;
+use Spatie\LaravelDashboard\Console\Components\InternetConnection\SendHeartbeat;
+use Spatie\LaravelDashboard\Console\Components\GitHub\FetchTotals as FetchGithubTotals;
+use Spatie\LaravelDashboard\Console\Components\Packagist\FetchTotals as FetchPackagistTotals;
 
 class DashboardServiceProvider extends ServiceProvider
 {
+    protected $basePath = __DIR__ . '/../../';
+
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'dashboard');
-        $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
+        $this->loadViewsFrom($this->basePath . 'resources/views', 'dashboard');
+        $this->loadRoutesFrom($this->basePath . 'routes/web.php');
 
-        $this->publishes([__DIR__ . '/../../config' => config_path()], 'config');
-        $this->publishes([__DIR__ . '/../../resources/views' => resource_path('views/vendor/dashboard')], 'views');
-        $this->publishes([__DIR__ . '/../../resources/assets/fonts' => public_path('fonts')], 'fonts');
-        $this->publishes([__DIR__ . '/../../resources/assets/images' => public_path('images/dashboard')], 'images');
-        $this->publishes([__DIR__ . '/../../resources/assets/css' => resource_path('assets/sass/dashboard')], 'css');
-        $this->publishes([__DIR__ . '/../../resources/assets/js' => resource_path('assets/js/dashboard')], 'js');
+        $this->publishBasic();
+        $this->publishAdvanced();
+    }
+
+    private function publishBasic()
+    {
+        $this->publishes([
+            $this->basePath . 'config' => config_path(),
+            $this->basePath . 'public' => public_path(),
+            $this->basePath . 'resources/assets/fonts' => public_path('fonts'),
+            $this->basePath . 'resources/assets/images' => public_path('images/dashboard'),
+        ], 'basic');
+    }
+
+    private function publishAdvanced()
+    {
+        $this->publishes([
+            $this->basePath . 'config' => config_path(),
+            $this->basePath . 'resources/views' => resource_path('views/vendor/dashboard'),
+            $this->basePath . 'resources/assets/fonts' => public_path('fonts'),
+            $this->basePath . 'resources/assets/images' => public_path('images/dashboard'),
+            $this->basePath . 'resources/assets/css' => resource_path('assets/sass/dashboard'),
+            $this->basePath . 'resources/assets/js' => resource_path('assets/js/dashboard'),
+            $this->basePath . 'public' => public_path(),
+        ], 'advanced');
     }
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../../config/dashboard.php', 'dashboard');
+        $this->mergeConfigFrom($this->basePath . 'config/dashboard.php', 'dashboard');
 
         $this->registerProviders();
         $this->registerCommands();
@@ -37,16 +68,16 @@ class DashboardServiceProvider extends ServiceProvider
     private function registerCommands()
     {
         $this->commands([
-            \Spatie\LaravelDashboard\Console\Components\Calendar\FetchCalendarEvents::class,
-            \Spatie\LaravelDashboard\Console\Components\GitHub\FetchTotals::class,
-            \Spatie\LaravelDashboard\Console\Components\InternetConnection\SendHeartbeat::class,
-            \Spatie\LaravelDashboard\Console\Components\Music\FetchCurrentTrack::class,
-            \Spatie\LaravelDashboard\Console\Components\Packagist\FetchTotals::class,
-            \Spatie\LaravelDashboard\Console\Components\Tasks\FetchTasks::class,
-            \Spatie\LaravelDashboard\Console\Components\Twitter\ListenForMentions::class,
-            \Spatie\LaravelDashboard\Console\Components\Twitter\ListenForQuotes::class,
-            \Spatie\LaravelDashboard\Console\Components\Twitter\SendFakeTweet::class,
-            \Spatie\LaravelDashboard\Console\UpdateDashboard::class,
+            FetchCalendarEvents::class,
+            FetchGithubTotals::class,
+            SendHeartbeat::class,
+            FetchCurrentTrack::class,
+            FetchPackagistTotals::class,
+            FetchTasks::class,
+            ListenForMentions::class,
+            ListenForQuotes::class,
+            SendFakeTweet::class,
+            UpdateDashboard::class,
         ]);
     }
 }

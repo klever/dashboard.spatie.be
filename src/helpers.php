@@ -13,3 +13,13 @@ if (! function_exists('usingNodeServer')) {
         return config('broadcasting.default') === 'laravel-echo-server';
     }
 }
+
+if (! function_exists('mixOrPlain')) {
+    function mixOrPlain($name) {
+        try {
+            return mix($name);
+        } catch (\Exception $e) {
+            return $name;
+        }
+    }
+}
