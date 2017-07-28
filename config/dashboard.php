@@ -15,7 +15,11 @@ return [
             'token' => env('GITHUB_TOKEN'),
             'files' => env('GITHUB_FILES'),
             'hook_secret' => env('GITHUB_HOOK_SECRET'),
-            'username' => env('GITHUB_USERNAME'),
+            'username' => env('GITHUB_USERNAME', 'spatie'),
+            'tasks' => [
+                'repo' => 'tasks',
+                'branch' => 'master',
+            ],
         ],
 
         'last-fm' => [

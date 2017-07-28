@@ -18,8 +18,16 @@ class FetchTasks extends Command
 
         $contentOfFiles = collect($fileNames)
             ->combine($fileNames)
+            ->reject(function ($filename) {
+                return empty($filename);
+            })
             ->map(function ($fileName) use ($gitHub) {
-                return $gitHub->fetchFileContent('spatie', 'tasks', "{$fileName}.md", 'master');
+                return $gitHub->fetchFileContent(
+                    config('dashboard.services.github.username', 'spatie'),
+                    config('dashboard.services.github.tasks.repo', 'tasks'),
+                    "{$fileName}.md",
+                    config('dashboard.services.github.tasks.branch', 'master')
+                );
             })
             ->map(function ($fileInfo) {
                 return file_get_contents($fileInfo['download_url']);
